@@ -1,0 +1,220 @@
+/* Fonts */
+
+@font-face { font-family: Roboto-Light; 
+    src: url('../fonts/Roboto-Light.ttf'); } 
+
+@font-face { font-family: Raleway-Black; 
+    src: url('../fonts/Raleway-Black.ttf'); } 
+/* Fonts end */
+
+body{
+    background-color: rgb(241, 241, 241);
+}
+
+h3{
+    color: rgb(44, 44, 44);
+    font-size: 2em;
+    font-family: Roboto-Light;
+    /* text-decoration: underline rgb(0, 0, 0) 0.025em;
+    text-underline-offset: 20%; */
+}
+@media(min-width: 850px){
+    .Previous{
+        background-color: rgb(197, 197, 197);
+        border-right: 2px solid rgb(241, 241, 241);
+        padding: 16px 0 64px 24px;
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 75% 50%, 50% 100%, 0 100%);
+    }
+
+    .Next{
+        background-color: rgb(197, 197, 197);
+        border-left: 2px solid rgb(241, 241, 241);
+        padding: 16px 24px 64px 0;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 25% 50%, 0 50%);
+    }
+}
+@media(max-width: 850px){
+    .Previous{
+        background-color: rgb(197, 197, 197);
+        border-right: 2px solid rgb(241, 241, 241);
+        padding: 16px 0 16px 24px;
+        font-size: 1em;
+    }
+
+    .Next{
+        background-color: rgb(197, 197, 197);
+        border-left: 2px solid rgb(241, 241, 241);
+        padding: 16px 24px 16px 0;
+        font-size: 1em;
+    }
+}
+
+.Previous:hover{
+    animation: Selector 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.Next:hover{
+    animation: Selector 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@media(min-width: 850px){
+    .txtSelect{
+        color: rgb(44, 44, 44);
+        font-size: 3em;
+        font-family: Roboto-Light;
+    }
+
+    #PKMN_Naam{
+        position: absolute;
+        width: 100vw;
+        border-bottom: 4px solid rgb(241, 241, 241);
+    }
+}
+
+@media(max-width: 850px){
+    .txtSelect{
+        color: rgb(44, 44, 44);
+        font-size: 2em;
+        font-family: Roboto-Light;
+    }
+
+    #PKMN_Naam{
+        position: relative;
+        width: 100vw;
+        border-bottom: 4px solid rgb(241, 241, 241);
+        border-top: 4px solid rgb(241, 241, 241);
+        background-color: rgb(197, 197, 197);
+    }
+
+    h3{
+        margin: 8px 0 8px;
+    }
+}
+
+@keyframes Selector {
+    0%{
+        background-color: rgb(197, 197, 197);
+    }
+    100%{
+        background-color: rgb(72, 179, 221);
+    }
+}
+
+.picture{
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.information{
+    background-color: rgb(0, 191, 255);
+    border-radius: 10px;
+}
+/* Pokemon types */
+.normal{
+    background-color: rgb(151, 151, 151);
+}
+
+.fire{
+    background-color: rgb(255, 104, 50);
+}
+
+.water{
+    background-color: rgb(0, 157, 209);
+}
+
+.electric{
+    background-color: rgb(255, 230, 0);
+}
+
+.grass{
+    background-color: rgb(0, 255, 0);
+}
+
+.ice{
+    background-color: rgb(151, 255, 255);
+}
+
+.fighting{
+    background-color: rgb(156, 47, 47);
+    color: white;
+}
+
+.poison{
+    background-color: rgb(121, 49, 121);
+    color: white;
+}
+
+.ground{
+    background-color: rgb(231, 230, 141);
+}
+
+.flying{
+    background-color: rgb(181, 203, 252);
+}
+
+.psychic{
+    background-color: rgb(253, 90, 172);
+}
+
+.bug{
+    background-color: rgb(188, 228, 94);
+}
+
+.rock{
+    background-color: rgb(197, 195, 92);
+}
+
+.ghost{
+    background-color: rgb(86, 63, 105);
+    color: white;
+}
+
+.dragon{
+    background-color: rgb(76, 23, 146);
+    color: white;
+}
+
+.fairy{
+    background-color: rgb(255, 196, 219);
+}
+
+.steel{
+    background-color: rgb(224, 224, 224);
+}
+
+.dark{
+    background-color: rgb(80, 64, 64);
+    color: white
+}
+
+.unknown{
+    background-color: rgb(255, 255, 255);
+}
+/* Pokemon types einde */
+
+.Pokedex{
+    background-color: rgb(241, 241, 241);
+}
+
+.rowInformation{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.evolutions{
+    border-top: 2px solid rgb(241, 241, 241);
+    border-bottom: 2px solid rgb(241, 241, 241);
+}
+
+.list{
+    background-color: rgb(0, 191, 255);
+    background: linear-gradient(rgb(0, 191, 255), rgb(153, 227, 252), rgb(0, 191, 255));
+    border-radius: 10px;
+}
+
+.evolves{
+    width: 200px;
+}
