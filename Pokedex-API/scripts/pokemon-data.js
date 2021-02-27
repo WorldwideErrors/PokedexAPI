@@ -3,8 +3,8 @@ const urlParams = new URLSearchParams(queryString);
 const pokemon = urlParams.get('pk')
 let urlPokemon = "https://pokeapi.co/api/v2/pokemon/" + pokemon;
 
-let rndSeen = Math.floor(Math.random() * 10);
-let rndCaught = Math.floor(Math.random() * 10);
+let rndSeen = Math.floor(Math.random() * 21);
+let rndCaught = Math.floor(Math.random() * 21);
 
 while(rndSeen < rndCaught){
     rndSeen = rndSeen + Math.floor(Math.random() * 10);
@@ -23,6 +23,8 @@ fetch(urlPokemon)
       displayData(data);
     })
     .catch((error) => {
+      errorPokemon();
+      errorDisplay();
       console.error("FETCH ERROR:", error);
     });
 
@@ -37,11 +39,12 @@ fetch(urlSpecies)
       }
     })
     .then(function (data) {   
-      console.log(data); 
-      fetchEvolve(data)
+    console.log(data); 
+    fetchEvolve(data);
     })
     .catch((error) => {
-      console.error("FETCH ERROR:", error);
+    fetchSelf();
+    console.error("FETCH ERROR Species:", error);
     });
 
 function fetchEvolve(data){
@@ -59,27 +62,168 @@ function fetchEvolve(data){
         displayEvolves(data);
         })
         .catch((error) => {
-        console.error("FETCH ERROR:", error);
+        
+        console.error("FETCH ERROR Evolves:", error);
         });
+}
+
+function errorPokemon(){
+    const divNaam = document.getElementById("PKMN_Naam");
+    const heading = document.createElement("h3");
+    heading.classList.add("unown");
+    heading.classList.add("text-center");
+    heading.innerHTML = "Unknown Pokemon";
+    divNaam.appendChild(heading);
+}
+
+function errorEvolve(){
+
+}
+
+function fetchSelf(){
+
+    const urlSelf = "https://pokeapi.co/api/v2/pokemon/" + pokemon;
+
+    fetch(urlSelf)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("NETWORK RESPONSE NOT OK");
+      }
+    })
+    .then(function (data) {   
+      console.log(data); 
+      displaySelf(data);
+    })
+    .catch((error) => {
+      console.error("FETCH ERROR Self:", error);
+    });
+}
+
+function displaySelf(data){
+    const div = document.getElementById("PKMN_FirstEvolve");
+    const firstEvolve = document.createElement("span");
+    firstEvolve.innerHTML = "<img class='evolves' src='" + data.sprites.front_default + "'>";
+    div.appendChild(firstEvolve);
+}
+
+function makeUnknown() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  
+    for (var i = 0; i < getRandomInt(); i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+  
+    return text;
+}
+
+function getRandomInt(){
+    let randomInt = Math.floor(Math.random() * 10) + 3;
+    return randomInt
+}
+
+function errorDisplay(){
+    const divInfo1 = document.getElementById("PKMN_Info1");
+    const divInfo2 = document.getElementById("PKMN_Info2");
+    const divInfo3 = document.getElementById("PKMN_Info3");
+    const divInfo4 = document.getElementById("PKMN_Info4");
+    let rValue = Math.random().toString(26).substring(7);
+
+    const info_Type1 = document.createElement("td");
+    info_Type1.classList.add("information");
+    info_Type1.classList.add("p-2");
+    info_Type1.classList.add("text-center");
+    info_Type1.classList.add("align-middle");
+    info_Type1.innerHTML = "<span class='unown'>" + makeUnknown() + "</span>"; 
+
+    const info_Type2 = document.createElement("td");
+    info_Type2.classList.add("information");
+    info_Type2.classList.add("p-2");
+    info_Type2.classList.add("text-center");
+    info_Type2.classList.add("align-middle");
+    info_Type2.innerHTML = "<span class='unown'>" + makeUnknown() + "</span>"; 
+
+    const info_Weight = document.createElement("td");
+    info_Weight.classList.add("information");
+    info_Weight.classList.add("p-2");
+    info_Weight.classList.add("text-center");
+    info_Weight.classList.add("align-middle");
+    info_Weight.innerHTML = "Weight: <br/>" + "<span class='unown'>" + makeUnknown() + "</span>" + " kg"; 
+
+    const info_Height = document.createElement("td");
+    info_Height.classList.add("information");
+    info_Height.classList.add("p-2");
+    info_Height.classList.add("text-center");
+    info_Height.classList.add("align-middle");
+    info_Height.innerHTML = "Height: <br/>" + "<span class='unown'>" + makeUnknown() + "</span>" + " m"; 
+
+    const info_Seen = document.createElement("td");
+    info_Seen.classList.add("information");
+    info_Seen.classList.add("p-2");
+    info_Seen.classList.add("text-center");
+    info_Seen.classList.add("align-middle");
+    info_Seen.innerHTML = "Seen: " + "<span class='unown'>" + makeUnknown() + "</span>"; 
+
+    const info_Caught = document.createElement("td");
+    info_Caught.classList.add("information");
+    info_Caught.classList.add("p-2");
+    info_Caught.classList.add("text-center");
+    info_Caught.classList.add("align-middle");
+    info_Caught.innerHTML = "Caught: " + "<span class='unown'>" + makeUnknown() + "</span>"; 
+    
+    const info_BaseEXP = document.createElement("td");
+    info_BaseEXP.classList.add("information");
+    info_BaseEXP.classList.add("p-2");
+    info_BaseEXP.classList.add("text-center");
+    info_BaseEXP.classList.add("align-middle");
+    info_BaseEXP.innerHTML = "Base Exp: <br/>" + "<span class='unown'>" + makeUnknown() + "</span>"; 
+
+    const info_Abilities = document.createElement("td");
+    info_Abilities.classList.add("information");
+    info_Abilities.classList.add("p-2");
+    info_Abilities.classList.add("text-center");
+    info_Abilities.classList.add("align-middle");
+    info_Abilities.innerHTML = "Abilities: <br/>" + "<span class='unown'>" + makeUnknown() + "</span>"; 
+
+    divInfo1.appendChild(info_Weight);
+    divInfo2.appendChild(info_Height);
+    divInfo3.appendChild(info_Seen);
+    divInfo4.appendChild(info_Type1);
+    divInfo1.appendChild(info_BaseEXP);
+    divInfo2.appendChild(info_Abilities);
+    divInfo3.appendChild(info_Caught);
+    divInfo4.appendChild(info_Type2);
+
+    const divIMG = document.getElementById("PKMN_IMG");
+    const images = document.createElement("p");
+    images.innerHTML = "<img class='picture' src='../images/unknown.png'>";
+    
+    divIMG.appendChild(images);
 }
 
 function displayData(data){
     const divNaam = document.getElementById("PKMN_Naam");
-    const divInfo1 = document.getElementById("PKMN_lInfo");
-    const divInfo2 = document.getElementById("PKMN_rInfo");
+    const divInfo1 = document.getElementById("PKMN_Info1");
+    const divInfo2 = document.getElementById("PKMN_Info2");
+    const divInfo3 = document.getElementById("PKMN_Info3");
+    const divInfo4 = document.getElementById("PKMN_Info4");
     const divIMG = document.getElementById("PKMN_IMG");
     // const div2 = document.getElementById("");
 
     // Variables
-    const pokemon_name = data.name.toUpperCase();
+    let pokemon_name = data.name.toUpperCase();;
+    
     let index;
 
     let type1;
     let type2;
+    let Poketype2;
     
     let weight;
     let height;
 
+    let baseEXP;
     let maxAbilities = data.abilities.length;
     let ability;
 
@@ -88,19 +232,24 @@ function displayData(data){
 
     // 1e type vullen
     type1 = data.types[0].type.name;
+    const Poketype1 = type1.charAt(0).toUpperCase() + type1.slice(1);
 
     // 2e type vullen
     if(data.types.length > 1){
         type2 = data.types[1].type.name;
+        Poketype2 = type2.charAt(0).toUpperCase() + type2.slice(1);
     }else{
         type2 = "unknown";
+        Poketype2 = type2.charAt(0).toUpperCase() + type2.slice(1);
     }
 
     // Index vullen
 
     if(data.id > 0){
         index = data.id;
-        if (index < 100){
+        if (index < 10){
+            index = "#00" + index;
+        }else if (index < 100){
             index = "#0" + index;
         }else{
             index = "#" + index;
@@ -108,7 +257,9 @@ function displayData(data){
     }
     else if(data.id != null){
         index = data.id;
-        if (index < 100){
+        if (index < 10){
+            index = "#00" + index;
+        }else if (index < 100){
             index = "#0" + index;
         }else{
             index = "#" + index;
@@ -126,6 +277,9 @@ function displayData(data){
     height = data.height / 10;
     const decimalHeight = height.toFixed(1);
 
+    // Vullen baseexperience
+    baseEXP = data.base_experience;
+
     // ability zetten
 
     for(i = 0; i < maxAbilities; i++){
@@ -136,7 +290,6 @@ function displayData(data){
                 }else{
                     ability = data.abilities[i].ability.name;
                 }
-                
             }
         }
     }
@@ -153,68 +306,80 @@ function displayData(data){
         back_female = "";
     }
 
-    const front_shiny = data.sprites.front_shiny;
-    const back_shiny = data.sprites.back_shiny;
-
     const art = data.sprites.other["official-artwork"].front_default;
-    const dream = data.sprites.other.dream_world.front_default;
     
     const heading = document.createElement("h3");
+    heading.classList.add("text-center");
     heading.innerHTML = 
     pokemon_name + " - " + index;
     divNaam.appendChild(heading);
 
-    const info_Type1 = document.createElement("p");
+    const info_Type1 = document.createElement("td");
     info_Type1.classList.add("information");
     info_Type1.classList.add("p-2");
     info_Type1.classList.add("text-center");
+    info_Type1.classList.add("align-middle");
     info_Type1.classList.add(type1);
-    info_Type1.innerHTML = "Type 1: " + type1; 
+    info_Type1.innerHTML = Poketype1; 
 
-    const info_Type2 = document.createElement("p");
+    const info_Type2 = document.createElement("td");
     info_Type2.classList.add("information");
     info_Type2.classList.add("p-2");
     info_Type2.classList.add("text-center");
+    info_Type2.classList.add("align-middle");
     info_Type2.classList.add(type2);
-    info_Type2.innerHTML = "Type 2: " + type2; 
+    info_Type2.innerHTML = Poketype2; 
 
-    const info_Weight = document.createElement("p");
+    const info_Weight = document.createElement("td");
     info_Weight.classList.add("information");
     info_Weight.classList.add("p-2");
     info_Weight.classList.add("text-center");
+    info_Weight.classList.add("align-middle");
     info_Weight.innerHTML = "Weight: <br/>" + decimalWeight + " kg"; 
 
-    const info_Height = document.createElement("p");
+    const info_Height = document.createElement("td");
     info_Height.classList.add("information");
     info_Height.classList.add("p-2");
     info_Height.classList.add("text-center");
+    info_Height.classList.add("align-middle");
     info_Height.innerHTML = "Height: <br/>" + decimalHeight + " m"; 
 
-    const info_Seen = document.createElement("p");
+    const info_Seen = document.createElement("td");
     info_Seen.classList.add("information");
     info_Seen.classList.add("p-2");
     info_Seen.classList.add("text-center");
-    info_Seen.innerHTML = "Seen: <br/>" + rndSeen; 
+    info_Seen.classList.add("align-middle");
+    info_Seen.innerHTML = "Seen: " + rndSeen; 
 
-    const info_Caught = document.createElement("p");
+    const info_Caught = document.createElement("td");
     info_Caught.classList.add("information");
     info_Caught.classList.add("p-2");
     info_Caught.classList.add("text-center");
-    info_Caught.innerHTML = "Caught: <br/>" + rndCaught; 
+    info_Caught.classList.add("align-middle");
+    info_Caught.innerHTML = "Caught: " + rndCaught; 
     
-    const info_Abilities = document.createElement("p");
+    const info_BaseEXP = document.createElement("td");
+    info_BaseEXP.classList.add("information");
+    info_BaseEXP.classList.add("p-2");
+    info_BaseEXP.classList.add("text-center");
+    info_BaseEXP.classList.add("align-middle");
+    info_BaseEXP.innerHTML = "Base Exp: <br/>" + baseEXP; 
+
+    const info_Abilities = document.createElement("td");
     info_Abilities.classList.add("information");
     info_Abilities.classList.add("p-2");
     info_Abilities.classList.add("text-center");
-    info_Abilities.innerHTML = "Abilities: " + ability; 
+    info_Abilities.classList.add("align-middle");
+    info_Abilities.innerHTML = "Abilities: <br/>" + ability; 
 
     divInfo1.appendChild(info_Weight);
-    divInfo1.appendChild(info_Height);
-    divInfo1.appendChild(info_Type1);
-    divInfo2.appendChild(info_Seen);
-    divInfo2.appendChild(info_Caught);
-    divInfo2.appendChild(info_Type2);
+    divInfo2.appendChild(info_Height);
+    divInfo3.appendChild(info_Seen);
+    divInfo4.appendChild(info_Type1);
+    divInfo1.appendChild(info_BaseEXP);
     divInfo2.appendChild(info_Abilities);
+    divInfo3.appendChild(info_Caught);
+    divInfo4.appendChild(info_Type2);
 
     const images = document.createElement("p");
     images.innerHTML = "<img class='picture' src='" + art + "'>";
@@ -222,11 +387,10 @@ function displayData(data){
     divIMG.appendChild(images);
 }
 
-
-
 function displayEvolves(data){
     
     // Get evolutions
+
     let maxSecEvolves = data.chain.evolves_to.length;
     let maxThirdEvolves = data.chain.evolves_to.length;
     if(data.chain.evolves_to.length > 0){
@@ -234,7 +398,8 @@ function displayEvolves(data){
     }else{
         maxThirdEvolves = 0;
     }
-    let firstEvolve = data.chain.species.name; 
+
+    let firstEvolve = data.chain.species.name; ;
 
     //Fetch species of evolves
     let urlSpeciesEvolves = "https://pokeapi.co/api/v2/pokemon/" + firstEvolve;
@@ -242,7 +407,7 @@ function displayEvolves(data){
     .then((response) => {
     if (response.ok) {
         return response.json();
-    } else {
+    }else {
         throw new Error("NETWORK RESPONSE NOT OK");
     }
     })
@@ -251,10 +416,10 @@ function displayEvolves(data){
     console.log(data)
     })
     .catch((error) => {
+    fetchSelf();
     console.error("FETCH ERROR:", error);
     });
 
-    let secondEvolve;
     if(data.chain.evolves_to.length > 0){
         var secondEvolveArray = [];
         for(i = 0; i < maxSecEvolves; i++){
@@ -293,13 +458,13 @@ function displayEvolves(data){
             .then((response) => {
             if (response.ok) {
                 return response.json();
-            } else {
+            }else {
                 throw new Error("NETWORK RESPONSE NOT OK");
             }
             })
             .then(function (data) {   
-            displayLastEvolve(data)
-            console.log(data)
+            displayLastEvolve(data);
+            console.log(data);
             })
             .catch((error) => {
             console.error("FETCH ERROR:", error);
@@ -311,10 +476,11 @@ function displayEvolves(data){
 }
 
 function displayFirstEvolve(data){
+    
     const div = document.getElementById("PKMN_FirstEvolve");
-    const secondEvolve = document.createElement("span");
-    secondEvolve.innerHTML = "<img class='evolves' src='" + data.sprites.front_default + "'>";
-    div.appendChild(secondEvolve);
+    const firstEvolve = document.createElement("span");
+    firstEvolve.innerHTML = "<img class='evolves' src='" + data.sprites.front_default + "'>";
+    div.appendChild(firstEvolve);
 }
 
 function displaySecondEvolve(data){
@@ -329,4 +495,11 @@ function displayLastEvolve(data){
     const lastEvolve = document.createElement("span");
     lastEvolve.innerHTML = "<img class='evolves' src='" + data.sprites.front_default + "'>";
     div.appendChild(lastEvolve);
+}
+
+function errorHandel(){
+    const div = document.getElementById("PKMN_FirstEvolve");
+    const errorhandling = document.createElement("span");
+    errorhandling.innerHTML = "<p> Er is iets fout gegaan!</p>";
+    div.appendChild(errorhandling);
 }
