@@ -22,6 +22,25 @@ h3{
     text-underline-offset: 20%; */
 }
 
+a:hover{
+    text-decoration: none;
+    color: rgb(44, 44, 44);
+}
+
+a{
+    color: rgb(44, 44, 44);
+}
+
+.singleThumbnail{
+    background-color: white;
+    border-radius: 10px;
+    width: 100px;
+}
+
+#allPokemon{
+    background-color: rgb(241, 241, 241);
+}
+
 .unown{
     font-family: Unown;
     color: black;
@@ -82,6 +101,12 @@ h3{
     }
 
     #PKMN_Naam{
+        position: absolute;
+        width: 100vw;
+        border-bottom: 4px solid rgb(241, 241, 241);
+    }
+
+    #Pokedex{
         position: absolute;
         width: 100vw;
         border-bottom: 4px solid rgb(241, 241, 241);
