@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Pokédex</title>
+        <title>Pokédex with Api</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,6 +12,7 @@
     </head>
     <body>
         <!-- Optional JavaScript -->
+        <script src="https://kit.fontawesome.com/9e8da0c3f0.js" crossorigin="anonymous"></script>
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -30,35 +31,66 @@
                         <!-- Pokemon naam komt hier in -->
                     </div>
             </div>
-            
             <div class="row d-flex justify-content-center rowInformation">
                 <div class="col-md-3 Pokedex pl-4 pr-2 pt-4">
+                    
                     <div id="PKMN_IMG">
                         <!-- Hier komt de afbeelding in te staan -->
                     </div>
                 </div>
                 <div class="col-md-4 Pokedex pr-2 pl-0 pt-4 w-100">
-                <table class="table">
-                    <tbody>
-                        <tr id="PKMN_Info1">
-                            
-                        </tr>
-                        <tr id="PKMN_Info2">
-                            
-                        </tr>
-                        <tr id="PKMN_Info3">
-                            
-                        </tr>
-                        <tr id="PKMN_Info4">
-                            
-                        </tr>
-                        <tr id="PKMN_Info5">
-                            
-                        </tr>
-                    </tbody>
-                </table>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td class="information p-2 text-center align-middle" id="PKMN_Classification">
+                                    <!-- Classification by javascript -->
+                                </td>
+                                <td class="back p-2 text-center align-middle">
+                                    <a href="index.html"><i class="fas fa-home"></i> Go back</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="information p-2 text-center align-middle" id="PKMN_Height">
+                                    <!-- Height by javascript -->
+                                </td>
+                                <td class="information p-2 text-center align-middle" id="PKMN_BaseEXP">
+                                    <!-- Base Experience by javascript -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="information p-2 text-center align-middle" id="PKMN_Weight">
+                                    <!-- Weight by javascript -->
+                                </td>
+                                <td class="information p-2 text-center align-middle" id="PKMN_BaseHappiness">
+                                    <!-- Base Happiness by javascript -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="information p-2 text-center align-middle" id="PKMN_Seen">
+                                    <!-- Seen by javascript -->
+                                </td>
+                                <td class="information p-2 text-center align-middle" id="PKMN_Caught">
+                                    <!-- Caught by javascript -->
+                                </td>
+                            </tr>
+                            <tr id="PKMN_Info5">
+                                <td class="information p-2 text-center align-middle" id="PKMN_CaptureRate">
+                                    <!-- Capture Rate by javascript -->
+                                </td>
+                                <td class="information p-2 text-center align-middle" id="PKMN_Abilities">
+                                    <!-- Abilities by javascript -->
+                                </td>
+                            </tr>
+                            <tr id="PKMN_Types">
+                                <!-- Type 1 and Type 2 by javascript -->
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
+
+            <!-- STATS VANUIT JAVASCRIPT TONEN ==> {abilities: Array(2), base_experience: 306, forms: Array(1), game_indices: Array(9), height: 54, …} -->
+
             <div class="row d-flex justify-content-center rowInformation">
                 <div class="col-md-7 d-flex justify-content-center text-center evolutionsHeader Pokedex">
                    <h3>EVOLUTIONS</h3> 

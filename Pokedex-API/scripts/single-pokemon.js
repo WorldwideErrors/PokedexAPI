@@ -42,6 +42,7 @@ fetch(urlSpecies)
     console.log(data); 
     getCaptureRate(data);
     getBaseHappiness(data);
+    getClassification(data);
     fetchEvolve(data);
     })
     .catch((error) => {
@@ -404,17 +405,13 @@ function getThumbnail(data){
 
 // Functie ophalen en tonen pokemon lengte
 function getHeight(data){
-    const divInfo = document.getElementById("PKMN_Info1");
+    const divInfo = document.getElementById("PKMN_Height");
 
     // Vullen lengte
     let height = data.height / 10;
     const decimalHeight = height.toFixed(1);
 
-    const info_Height = document.createElement("td");
-    info_Height.classList.add("information");
-    info_Height.classList.add("p-2");
-    info_Height.classList.add("text-center");
-    info_Height.classList.add("align-middle");
+    const info_Height = document.createElement("span");
     info_Height.innerHTML = "Height: <br/>" + decimalHeight + " m"; 
 
     divInfo.appendChild(info_Height);
@@ -422,17 +419,13 @@ function getHeight(data){
 
 // Functie ophalen en tonen pokemon gewicht
 function getWeight(data){
-    const divInfo = document.getElementById("PKMN_Info2");
+    const divInfo = document.getElementById("PKMN_Weight");
 
     // Vullen gewicht
     let weight = data.weight / 10;
     var decimalWeight = weight.toFixed(1);
     
-    const info_Weight = document.createElement("td");
-    info_Weight.classList.add("information");
-    info_Weight.classList.add("p-2");
-    info_Weight.classList.add("text-center");
-    info_Weight.classList.add("align-middle");
+    const info_Weight = document.createElement("span");
     info_Weight.innerHTML = "Weight: <br/>" + decimalWeight + " kg"; 
 
     divInfo.appendChild(info_Weight);
@@ -440,44 +433,31 @@ function getWeight(data){
 
 // Functie ophalen en tonen pokemon basis experience
 function getBaseEXP(data){
-    const divInfo = document.getElementById("PKMN_Info1");
+    const divInfo = document.getElementById("PKMN_BaseEXP");
 
     // Vullen baseexperience
     const baseEXP = data.base_experience;
 
-    const info_BaseEXP = document.createElement("td");
-    info_BaseEXP.classList.add("information");
-    info_BaseEXP.classList.add("p-2");
-    info_BaseEXP.classList.add("text-center");
-    info_BaseEXP.classList.add("align-middle");
+    const info_BaseEXP = document.createElement("span");
     info_BaseEXP.innerHTML = "Base Exp: <br/>" + baseEXP; 
 
     divInfo.appendChild(info_BaseEXP);
 }
 
-AAAAA
 // Functie ophalen en tonen pokemon basis vreugd
 function getBaseHappiness(data){
-    const divInfo = document.getElementById("PKMN_Info2");
+    const divInfo = document.getElementById("PKMN_BaseHappiness");
 
-    const info_BaseHappiness = document.createElement("td");
-    info_BaseHappiness.classList.add("information");
-    info_BaseHappiness.classList.add("p-2");
-    info_BaseHappiness.classList.add("text-center");
-    info_BaseHappiness.classList.add("align-middle");
+    const info_BaseHappiness = document.createElement("span");
     info_BaseHappiness.innerHTML = "Base Happiness: <br/>" + data.base_happiness;
     divInfo.appendChild(info_BaseHappiness); 
 }
 
 // Functie ophalen en tonen aantal gezien (Random)
 function getSeen(){
-    const divInfo = document.getElementById("PKMN_Info3");
+    const divInfo = document.getElementById("PKMN_Seen");
 
-    const info_Seen = document.createElement("td");
-    info_Seen.classList.add("information");
-    info_Seen.classList.add("p-2");
-    info_Seen.classList.add("text-center");
-    info_Seen.classList.add("align-middle");
+    const info_Seen = document.createElement("span");
     info_Seen.innerHTML = "Seen: <br/>" + rndSeen; 
 
     divInfo.appendChild(info_Seen);
@@ -486,13 +466,9 @@ function getSeen(){
 
 // Functie ophalen en tonen aantal gevangen (Random)
 function getCaught(){
-    const divInfo = document.getElementById("PKMN_Info3");
+    const divInfo = document.getElementById("PKMN_Caught");
 
-    const info_Caught = document.createElement("td");
-    info_Caught.classList.add("information");
-    info_Caught.classList.add("p-2");
-    info_Caught.classList.add("text-center");
-    info_Caught.classList.add("align-middle");
+    const info_Caught = document.createElement("span");
     info_Caught.innerHTML = "Caught: <br/>" + rndCaught; 
 
     divInfo.appendChild(info_Caught);
@@ -501,7 +477,7 @@ function getCaught(){
 // Functie ophalen en tonen pokemon type 1
 function getType1(data){
 
-    const divInfo = document.getElementById("PKMN_Info4");
+    const divInfo = document.getElementById("PKMN_Types");
 
     // 1e type vullen
     type1 = data.types[0].type.name;
@@ -521,7 +497,7 @@ function getType1(data){
 // Functie ophalen en tonen pokemon type 2
 function getType2(data){
     
-    const divInfo = document.getElementById("PKMN_Info4");
+    const divInfo = document.getElementById("PKMN_Types");
     
     // 2e type vullen
     if(data.types.length > 1){
@@ -545,13 +521,9 @@ function getType2(data){
 
 // Functie ophalen en tonen pokemon capture rate
 function getCaptureRate(data){
-    const divInfo = document.getElementById("PKMN_Info5");
+    const divInfo = document.getElementById("PKMN_CaptureRate");
     
-    const info_CaptureRate = document.createElement("td");
-    info_CaptureRate.classList.add("information");
-    info_CaptureRate.classList.add("p-2");
-    info_CaptureRate.classList.add("text-center");
-    info_CaptureRate.classList.add("align-middle");
+    const info_CaptureRate = document.createElement("span");
     info_CaptureRate.innerHTML = "Capture Rate: <br/>" + data.capture_rate; 
 
     divInfo.appendChild(info_CaptureRate);
@@ -560,7 +532,7 @@ function getCaptureRate(data){
 // Functie ophalen en tonen pokemon abilities
 function getAbilities(data){
 
-    const divInfo = document.getElementById("PKMN_Info5");
+    const divInfo = document.getElementById("PKMN_Abilities");
     let maxAbilities = data.abilities.length;
     let ability;
 
@@ -578,14 +550,23 @@ function getAbilities(data){
         }
     }
 
-    const info_Abilities = document.createElement("td");
-    info_Abilities.classList.add("information");
-    info_Abilities.classList.add("p-2");
-    info_Abilities.classList.add("text-center");
-    info_Abilities.classList.add("align-middle");
+    const info_Abilities = document.createElement("span");
     info_Abilities.innerHTML = "Abilities: <br/>" + ability; 
 
     divInfo.appendChild(info_Abilities);
+}
+
+// Functie ophalen en tonen pokemon basis experience
+function getClassification(data){
+    const divInfo = document.getElementById("PKMN_Classification");
+
+    // Vullen baseexperience
+    const Genus = data.genera[7].genus;
+
+    const info_Genus = document.createElement("span");
+    info_Genus.innerHTML = "Classification: <br/>" + Genus; 
+
+    divInfo.appendChild(info_Genus);
 }
 
 function displayEvolves(data){

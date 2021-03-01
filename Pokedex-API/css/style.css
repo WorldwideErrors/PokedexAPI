@@ -14,6 +14,11 @@ body{
     background-color: rgb(241, 241, 241);
 }
 
+h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection, 
+span::selection, p::selection, img::selection, a::selection, td::selection, br::selection{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
 h3{
     color: rgb(44, 44, 44);
     font-size: 2em;
@@ -117,6 +122,12 @@ a{
         border-radius: 10px;
         width: 50%;
     }
+
+    .back{
+        background-color: rgb(255, 89, 89);
+        border-radius: 10px;
+        width: 50%;
+    }
 }
 
 @media(max-width: 850px){
@@ -171,26 +182,32 @@ a{
 /* Pokemon types */
 .normal{
     background-color: rgb(151, 151, 151);
+    color: white;
 }
 
 .fire{
     background-color: rgb(255, 104, 50);
+    color: white;
 }
 
 .water{
     background-color: rgb(0, 157, 209);
+    color: white;
 }
 
 .electric{
     background-color: rgb(255, 230, 0);
+    color: white;
 }
 
 .grass{
     background-color: rgb(65, 218, 65);
+    color: white;
 }
 
 .ice{
-    background-color: rgb(151, 255, 255);
+    background-color: rgb(81, 238, 238);
+    color: white;
 }
 
 .fighting{
@@ -204,23 +221,28 @@ a{
 }
 
 .ground{
-    background-color: rgb(231, 230, 141);
+    background-color: rgb(214, 213, 132);
+    color: white;
 }
 
 .flying{
-    background-color: rgb(181, 203, 252);
+    background-color: rgb(155, 176, 223);
+    color: white;
 }
 
 .psychic{
     background-color: rgb(253, 90, 172);
+    color: white;
 }
 
 .bug{
     background-color: rgb(188, 228, 94);
+    color: white;
 }
 
 .rock{
-    background-color: rgb(197, 195, 92);
+    background-color: rgb(187, 185, 89);
+    color: white;
 }
 
 .ghost{
@@ -239,6 +261,7 @@ a{
 
 .steel{
     background-color:#c0c0c0;
+    color: white;
 }
 
 .dark{
@@ -263,7 +286,6 @@ a{
 
 .rowInformation{
     background-color: rgba(0, 0, 0, 0.5);
-    /* background-color: rgb(255, 100, 100); */
 }
 
 .evolutions{
