@@ -81,7 +81,7 @@ const displayPokemon = (pokemon) => {
   const pokemonHTMLString = pokemon
       .map(
       (singlePokemon) => 
-      `<li class="card">
+      `<li class="card m-2">
           <a href='pokemon.html?pk=${singlePokemon.id}' /> <img class='singleThumbnail m-3' src='${singlePokemon.image}'> 
           <h3 class="card-title"> ${singlePokemon.name.toUpperCase()} - ${getIndex(singlePokemon)}</h2>
           </a>
@@ -108,7 +108,7 @@ const divPrev = document.getElementById("txtPrev");
 
   const Previous = document.createElement("span");
   Previous.classList.add("txtSelect");
-  Previous.innerHTML = "<a href='index.html?region=" + prevRegion + "'>" + prevRegion.toUpperCase() + "</a>";
+  Previous.innerHTML = prevRegion.toUpperCase();
 
   divPrev.appendChild(Previous);
 
@@ -117,7 +117,7 @@ const divNext = document.getElementById("txtNext");
 
   const Next = document.createElement("span");
   Next.classList.add("txtSelect");
-  Next.innerHTML = "<a href='index.html?region=" + nextRegion + "'>" + nextRegion.toUpperCase() + "</a>";
+  Next.innerHTML = nextRegion.toUpperCase();
 
   divNext.appendChild(Next);
 
@@ -153,3 +153,20 @@ function getmaxRegion(){
 }
 
 fetchPokemon();
+
+function getPokemon(){
+  window.location.href = 'pokemon.html?pk=' + getRandomIndex();
+}
+
+function getRandomIndex(){
+  let randomIndex = Math.floor(Math.random() * 898) + 1;
+  return randomIndex;
+}
+
+function getPreviousRegion(){
+  window.location.href = 'index.html?region=' + prevRegion;
+}
+
+function getNextRegion(){
+  window.location.href = 'index.html?region=' + nextRegion;
+}

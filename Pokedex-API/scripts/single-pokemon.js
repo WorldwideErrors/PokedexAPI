@@ -103,7 +103,7 @@ function fetchSelf(){
 function displaySelf(data){
     const div = document.getElementById("PKMN_FirstEvolve");
     const firstEvolve = document.createElement("span");
-    firstEvolve.innerHTML = "<img class='evolves' src='" + data.sprites.front_default + "'>";
+    firstEvolve.innerHTML = "<a href='pokemon.html?pk=" + data.id + "'><img class='evolves' src='" + data.sprites.front_default + "'></a>";
     div.appendChild(firstEvolve);
 }
 
@@ -123,11 +123,90 @@ function getRandomInt(){
 }
 
 function errorDisplay(){
-    const divInfo1 = document.getElementById("PKMN_Info1");
-    const divInfo2 = document.getElementById("PKMN_Info2");
-    const divInfo3 = document.getElementById("PKMN_Info3");
-    const divInfo4 = document.getElementById("PKMN_Info4");
-    const divInfo5 = document.getElementById("PKMN_Info5");
+
+    // Vullen Height
+    const divClassification = document.getElementById("PKMN_Classification");
+    
+    const info_Classification = document.createElement("span");
+    info_Classification.classList.add("unown");
+    info_Classification.innerHTML = makeUnknown() + " m"; 
+
+    divClassification.appendChild(info_Classification);
+
+    // Vullen Height
+    const divHeight = document.getElementById("PKMN_Height");
+    
+    const info_Height = document.createElement("span");
+    info_Height.classList.add("unown");
+    info_Height.innerHTML = makeUnknown() + " m"; 
+
+    divHeight.appendChild(info_Height);
+
+    // Vullen Base Experience
+    const divBaseEXP = document.getElementById("PKMN_BaseEXP");
+
+    const info_BaseEXP = document.createElement("span");
+    info_BaseEXP.classList.add("unown");
+    info_BaseEXP.innerHTML = makeUnknown(); 
+
+    divBaseEXP.appendChild(info_BaseEXP);
+
+    // Vullen Weight
+    const divWeight = document.getElementById("PKMN_Weight");
+        
+    const info_Weight = document.createElement("span");
+    info_Weight.classList.add("unown");
+    info_Weight.innerHTML = makeUnknown() + " kg"; 
+
+    divWeight.appendChild(info_Weight);
+
+    // Vullen Base Experience
+    const divBaseHappiness = document.getElementById("PKMN_BaseHappiness");
+
+    const info_BaseHappiness = document.createElement("span");
+    info_BaseHappiness.classList.add("unown");
+    info_BaseHappiness.innerHTML = makeUnknown(); 
+
+    divBaseHappiness.appendChild(info_BaseHappiness);
+
+    // Vullen Seen
+    const divSeen = document.getElementById("PKMN_Seen");
+    
+    const info_Seen = document.createElement("span");
+    info_Seen.classList.add("unown");
+    info_Seen.innerHTML = makeUnknown(); 
+
+    divSeen.appendChild(info_Seen);
+
+    // Vullen Caught
+    const divCaught = document.getElementById("PKMN_Caught");
+    
+    const info_Caught = document.createElement("span");
+    info_Caught.classList.add("unown");
+    info_Caught.innerHTML = makeUnknown(); 
+
+    divCaught.appendChild(info_Caught);
+
+    // Vullen Capture Rate
+    const divCaptureRate = document.getElementById("PKMN_CaptureRate");
+
+    const info_CaptureRate = document.createElement("span");
+    info_CaptureRate.classList.add("unown");
+    info_CaptureRate.innerHTML = makeUnknown(); 
+
+    divCaptureRate.appendChild(info_CaptureRate);
+
+    // Vullen Abilities
+    const divAbilities = document.getElementById("PKMN_Abilities");
+
+    const info_Abilities = document.createElement("span");
+    info_Abilities.classList.add("unown");
+    info_Abilities.innerHTML = makeUnknown(); 
+
+    divAbilities.appendChild(info_Abilities);
+
+    // Vullen Type 1 & Type 2
+    const divTypes = document.getElementById("PKMN_Types");
 
     const info_Type1 = document.createElement("td");
     info_Type1.classList.add("information");
@@ -135,7 +214,7 @@ function errorDisplay(){
     info_Type1.classList.add("text-center");
     info_Type1.classList.add("align-middle");
     info_Type1.innerHTML = "<span class='unown'>" + makeUnknown() + "</span>"; 
-
+    
     const info_Type2 = document.createElement("td");
     info_Type2.classList.add("information");
     info_Type2.classList.add("p-2");
@@ -143,56 +222,36 @@ function errorDisplay(){
     info_Type2.classList.add("align-middle");
     info_Type2.innerHTML = "<span class='unown'>" + makeUnknown() + "</span>"; 
 
-    const info_Weight = document.createElement("td");
-    info_Weight.classList.add("information");
-    info_Weight.classList.add("p-2");
-    info_Weight.classList.add("text-center");
-    info_Weight.classList.add("align-middle");
-    info_Weight.innerHTML = "Weight: <br/>" + "<span class='unown'>" + makeUnknown() + "</span>" + " kg"; 
+    divTypes.appendChild(info_Type1);
+    divTypes.appendChild(info_Type2);
 
-    const info_Height = document.createElement("td");
-    info_Height.classList.add("information");
-    info_Height.classList.add("p-2");
-    info_Height.classList.add("text-center");
-    info_Height.classList.add("align-middle");
-    info_Height.innerHTML = "Height: <br/>" + "<span class='unown'>" + makeUnknown() + "</span>" + " m"; 
+    // Vullen Selectors
+        // Vullen Previous
+        let prevPokemon = "#898";
+        let prevName = "CALYREX";
 
-    const info_Seen = document.createElement("td");
-    info_Seen.classList.add("information");
-    info_Seen.classList.add("p-2");
-    info_Seen.classList.add("text-center");
-    info_Seen.classList.add("align-middle");
-    info_Seen.innerHTML = "Seen: " + "<span class='unown'>" + makeUnknown() + "</span>"; 
+        const divPrev = document.getElementById("txtPrev");
+        prevLink = 898;
 
-    const info_Caught = document.createElement("td");
-    info_Caught.classList.add("information");
-    info_Caught.classList.add("p-2");
-    info_Caught.classList.add("text-center");
-    info_Caught.classList.add("align-middle");
-    info_Caught.innerHTML = "Caught: " + "<span class='unown'>" + makeUnknown() + "</span>"; 
-    
-    const info_BaseEXP = document.createElement("td");
-    info_BaseEXP.classList.add("information");
-    info_BaseEXP.classList.add("p-2");
-    info_BaseEXP.classList.add("text-center");
-    info_BaseEXP.classList.add("align-middle");
-    info_BaseEXP.innerHTML = "Base Exp: <br/>" + "<span class='unown'>" + makeUnknown() + "</span>"; 
+        const Previous = document.createElement("span");
+        Previous.classList.add("txtSelect");
+        Previous.innerHTML = "<a href='pokemon.html?pk=" + prevLink + "'>" + prevName + " - " + prevPokemon+ "</a>";
 
-    const info_Abilities = document.createElement("td");
-    info_Abilities.classList.add("information");
-    info_Abilities.classList.add("p-2");
-    info_Abilities.classList.add("text-center");
-    info_Abilities.classList.add("align-middle");
-    info_Abilities.innerHTML = "Abilities: <br/>" + "<span class='unown'>" + makeUnknown() + "</span>"; 
+        divPrev.appendChild(Previous);
 
-    divInfo1.appendChild(info_Weight);
-    divInfo2.appendChild(info_Height);
-    divInfo3.appendChild(info_Seen);
-    divInfo4.appendChild(info_Type1);
-    divInfo1.appendChild(info_BaseEXP);
-    divInfo2.appendChild(info_Abilities);
-    divInfo3.appendChild(info_Caught);
-    divInfo4.appendChild(info_Type2);
+    // Vullen Next
+
+    let nextPokemon = "#001";
+    let nextName = "BULBASAUR";
+
+    const divNext = document.getElementById("txtNext");
+    nextLink = 1;
+
+    const Next = document.createElement("span");
+    Next.classList.add("txtSelect");
+    Next.innerHTML = "<a href='pokemon.html?pk=" + nextLink + "'>" + nextName + " - " + nextPokemon+ "</a>";
+
+    divNext.appendChild(Next);
 
     const divIMG = document.getElementById("PKMN_IMG");
     const images = document.createElement("p");
@@ -227,6 +286,7 @@ function displayDataPokemon(data){
     getCaught();
     getType1(data);
     getType2(data);
+    displayMoves(data);
 }
 
 // Functie ophalen en tonen link naar andere pokemons
@@ -390,6 +450,15 @@ function getName(data){
     div.appendChild(heading);
 }
 
+function getPokemon(){
+    window.location.href = 'pokemon.html?pk=' + getRandomIndex();
+}
+  
+function getRandomIndex(){
+    let randomIndex = Math.floor(Math.random() * 898) + 1;
+    return randomIndex;
+}
+
 // Functie ophalen en tonen pokemon thumbnail
 function getThumbnail(data){
     const div = document.getElementById("PKMN_IMG");
@@ -409,10 +478,10 @@ function getHeight(data){
 
     // Vullen lengte
     let height = data.height / 10;
-    const decimalHeight = height.toFixed(1);
+    const decimalHeight = height.toFixed(2);
 
     const info_Height = document.createElement("span");
-    info_Height.innerHTML = "Height: <br/>" + decimalHeight + " m"; 
+    info_Height.innerHTML = decimalHeight + " m"; 
 
     divInfo.appendChild(info_Height);
 }
@@ -426,7 +495,7 @@ function getWeight(data){
     var decimalWeight = weight.toFixed(1);
     
     const info_Weight = document.createElement("span");
-    info_Weight.innerHTML = "Weight: <br/>" + decimalWeight + " kg"; 
+    info_Weight.innerHTML = decimalWeight + " kg"; 
 
     divInfo.appendChild(info_Weight);
 }
@@ -439,7 +508,7 @@ function getBaseEXP(data){
     const baseEXP = data.base_experience;
 
     const info_BaseEXP = document.createElement("span");
-    info_BaseEXP.innerHTML = "Base Exp: <br/>" + baseEXP; 
+    info_BaseEXP.innerHTML = baseEXP; 
 
     divInfo.appendChild(info_BaseEXP);
 }
@@ -449,7 +518,7 @@ function getBaseHappiness(data){
     const divInfo = document.getElementById("PKMN_BaseHappiness");
 
     const info_BaseHappiness = document.createElement("span");
-    info_BaseHappiness.innerHTML = "Base Happiness: <br/>" + data.base_happiness;
+    info_BaseHappiness.innerHTML = data.base_happiness;
     divInfo.appendChild(info_BaseHappiness); 
 }
 
@@ -458,7 +527,7 @@ function getSeen(){
     const divInfo = document.getElementById("PKMN_Seen");
 
     const info_Seen = document.createElement("span");
-    info_Seen.innerHTML = "Seen: <br/>" + rndSeen; 
+    info_Seen.innerHTML = rndSeen; 
 
     divInfo.appendChild(info_Seen);
     
@@ -469,7 +538,7 @@ function getCaught(){
     const divInfo = document.getElementById("PKMN_Caught");
 
     const info_Caught = document.createElement("span");
-    info_Caught.innerHTML = "Caught: <br/>" + rndCaught; 
+    info_Caught.innerHTML = rndCaught; 
 
     divInfo.appendChild(info_Caught);
 }
@@ -524,7 +593,7 @@ function getCaptureRate(data){
     const divInfo = document.getElementById("PKMN_CaptureRate");
     
     const info_CaptureRate = document.createElement("span");
-    info_CaptureRate.innerHTML = "Capture Rate: <br/>" + data.capture_rate; 
+    info_CaptureRate.innerHTML = data.capture_rate; 
 
     divInfo.appendChild(info_CaptureRate);
 }
@@ -551,7 +620,7 @@ function getAbilities(data){
     }
 
     const info_Abilities = document.createElement("span");
-    info_Abilities.innerHTML = "Abilities: <br/>" + ability; 
+    info_Abilities.innerHTML = ability; 
 
     divInfo.appendChild(info_Abilities);
 }
@@ -561,12 +630,16 @@ function getClassification(data){
     const divInfo = document.getElementById("PKMN_Classification");
 
     // Vullen baseexperience
-    const Genus = data.genera[7].genus;
+    const Classification = data.genera[7].genus;
 
-    const info_Genus = document.createElement("span");
-    info_Genus.innerHTML = "Classification: <br/>" + Genus; 
+    const info_Classification = document.createElement("span");
+    info_Classification.innerHTML = Classification; 
 
-    divInfo.appendChild(info_Genus);
+    divInfo.appendChild(info_Classification);
+}
+
+function getBack(){
+    window.location.href = 'index.html?region=kanto';
 }
 
 function displayEvolves(data){
@@ -665,24 +738,23 @@ function displayEvolves(data){
 }
 
 function displayFirstEvolve(data){
-    
     const div = document.getElementById("PKMN_FirstEvolve");
     const firstEvolve = document.createElement("span");
-    firstEvolve.innerHTML = "<img class='evolves' src='" + data.sprites.front_default + "'>";
+    firstEvolve.innerHTML = "<a href='pokemon.html?pk=" + data.id + "'><img class='evolves' src='" + data.sprites.front_default + "'><a/>";
     div.appendChild(firstEvolve);
 }
 
 function displaySecondEvolve(data){
     const div = document.getElementById("PKMN_SecondEvolves");
     const secondEvolve = document.createElement("span");
-    secondEvolve.innerHTML = "<img class='evolves' src='" + data.sprites.front_default + "'>";
+    secondEvolve.innerHTML = "<a href='pokemon.html?pk=" + data.id + "'><img class='evolves' src='" + data.sprites.front_default + "'><a/>";
     div.appendChild(secondEvolve);
 }
 
 function displayLastEvolve(data){
     const div = document.getElementById("PKMN_LastEvolves");
     const lastEvolve = document.createElement("span");
-    lastEvolve.innerHTML = "<img class='evolves' src='" + data.sprites.front_default + "'>";
+    lastEvolve.innerHTML = "<a href='pokemon.html?pk=" + data.id + "'><img class='evolves' src='" + data.sprites.front_default + "'><a/>";
     div.appendChild(lastEvolve);
 }
 
@@ -691,4 +763,38 @@ function errorHandel(){
     const errorhandling = document.createElement("span");
     errorhandling.innerHTML = "<p> Er is iets fout gegaan!</p>";
     div.appendChild(errorhandling);
+}
+
+function displayMoves(data){
+
+    let allMoves = data.moves.length;
+    for(i = 0; i < allMoves; i++){
+        let versionDetailLength = data.moves[i].version_group_details.length;
+        
+        for(j = 0; j < versionDetailLength; j++){
+            let methodLearn = data.moves[i].version_group_details[j].move_learn_method.name;
+            if(methodLearn == "level-up"){
+                let versionDetail = data.moves[i].version_group_details[j].version_group.name;
+                let learningLevel = data.moves[i].version_group_details[j].level_learned_at;
+                if(versionDetail == "sun-moon" && learningLevel > 0){
+                    const divMoves = document.getElementById("PKMN_Moves");
+
+                    // Vullen baseexperience
+                    const Moves = data.moves[i].move.name;
+                    let Level;
+                    if(learningLevel > 1){
+                        Level = learningLevel;
+                    }else{
+                        Level = "--";
+                    }
+
+                    const move_info = document.createElement("span");
+                    move_info.innerHTML = Moves + " will be learned at " + Level + "<br/>"; 
+
+                    divMoves.appendChild(move_info);
+                }
+                
+            }
+        }
+    }
 }

@@ -32,6 +32,10 @@ a:hover{
     color: rgb(44, 44, 44);
 }
 
+span{
+    font-family: Roboto-Light;
+}
+
 a{
     color: rgb(44, 44, 44);
 }
@@ -46,9 +50,43 @@ a{
     background-color: rgb(241, 241, 241);
 }
 
+#PKMN_Random{
+    background-color: rgb(241, 241, 241);
+}
+
 .unown{
     font-family: Unown;
     color: black;
+}
+
+.back{
+    background-color: rgb(221, 72, 72);
+    border-radius: 10px;
+    width: 50%;
+    cursor: pointer;
+}
+
+.back:hover{
+    animation: Selector 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.randomize{
+    background-color: rgb(221, 72, 72);
+    border-radius: 10px;
+    width: 50%;
+    cursor: pointer;
+}
+
+.randomize:hover{
+    animation: Selector 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.rgSelect{
+    cursor: pointer;
 }
 
 @media(min-width: 850px){
@@ -65,20 +103,43 @@ a{
         padding: 16px 24px 64px 0;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 25% 50%, 0 50%);
     }
+
+    h3.card-title{
+        font-size:  calc(9px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+    }
+
+    li.card{
+        width: 45%;
+        display: inline-block;
+        margin: auto;
+        border-radius: 10px;
+    }
 }
+
 @media(max-width: 850px){
     .Previous{
         background-color: rgb(221, 72, 72);
         border-right: 2px solid rgb(241, 241, 241);
         padding: 16px 0 16px 24px;
-        font-size: 1em;
+        font-size:  calc(9px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
     }
 
     .Next{
         background-color: rgb(221, 72, 72);
         border-left: 2px solid rgb(241, 241, 241);
         padding: 16px 24px 16px 0;
-        font-size: 1em;
+        font-size:  calc(9px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+    }
+
+    h3.card-title{
+        font-size:  calc(8px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+    }
+
+    li.card{
+        width: 90%;
+        display: inline-block;
+        margin: auto;
+        border-radius: 10px;
     }
 }
 
@@ -101,30 +162,24 @@ a{
 @media(min-width: 850px){
     .txtSelect{
         color: rgb(44, 44, 44);
-        font-size: 3em;
+        font-size: 2em;
         font-family: Roboto-Light;
     }
 
     #PKMN_Naam{
         position: absolute;
-        width: 100vw;
+        width: 100%;
         border-bottom: 4px solid rgb(241, 241, 241);
     }
 
     #Pokedex{
         position: absolute;
-        width: 100vw;
+        width: 100%;
         border-bottom: 4px solid rgb(241, 241, 241);
     }
 
     .information{
         background-color: rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        width: 50%;
-    }
-
-    .back{
-        background-color: rgb(255, 89, 89);
         border-radius: 10px;
         width: 50%;
     }
@@ -139,10 +194,20 @@ a{
 
     #PKMN_Naam{
         position: relative;
-        width: 100vw;
+        width: 100%;
         border-bottom: 4px solid rgb(241, 241, 241);
         border-top: 4px solid rgb(241, 241, 241);
         background-color: rgb(221, 72, 72);
+        font-size:  calc(9px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+    }
+
+    #Pokedex{
+        position: relative;
+        width: 100%;
+        border-bottom: 4px solid rgb(241, 241, 241);
+        border-top: 4px solid rgb(241, 241, 241);
+        background-color: rgb(221, 72, 72);
+        font-size:  calc(9px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
     }
 
     h3{
@@ -154,6 +219,10 @@ a{
         border-radius: 10px;
         font-size: calc(8px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
         width: 50%;
+    }
+
+    .randomize{
+        font-size: calc(8px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
     }
 }
 
@@ -196,7 +265,7 @@ a{
 }
 
 .electric{
-    background-color: rgb(255, 230, 0);
+    background-color: rgb(238, 214, 0);
     color: white;
 }
 

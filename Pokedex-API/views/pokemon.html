@@ -21,63 +21,78 @@
 
         <div class="container-fluid page-content">
             <div class="row d-flex align-items-center Header">
-                <div class="col-6 d-flex mr-auto Previous" id="txtPrev">
+                <div class="col-6 d-flex mr-auto Previous" id="txtPrev" onClick=getPreviousPokemon()>
                     
                 </div>
-                <div class="col-6 d-flex justify-content-end ml-auto Next" id="txtNext">
+                <div class="col-6 d-flex justify-content-end ml-auto Next" id="txtNext" onClick=getNextPokemon()>
 
                 </div>
-                    <div class="d-flex justify-content-center align-self-end" id="PKMN_Naam">
-                        <!-- Pokemon naam komt hier in -->
-                    </div>
+                <div class="d-flex justify-content-center align-self-end" id="PKMN_Naam">
+                    <!-- Pokemon naam komt hier in -->
+                </div>
             </div>
             <div class="row d-flex justify-content-center rowInformation">
-                <div class="col-md-3 Pokedex pl-4 pr-2 pt-4">
-                    
+                <div class="col-md-7 text-center px-0 py-2 justify-content-center" id="PKMN_Random">
+                    <button class="btn randomize" onClick="getPokemon()">
+                        Find random pokémon
+                    </button>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center rowInformation">
+                <div class="col-md-3 Pokedex pl-4 pr-2 pt-2">
                     <div id="PKMN_IMG">
                         <!-- Hier komt de afbeelding in te staan -->
                     </div>
                 </div>
-                <div class="col-md-4 Pokedex pr-2 pl-0 pt-4 w-100">
+                <div class="col-md-4 Pokedex pr-2 pl-0 pt-2 w-100">
                     <table class="table">
                         <tbody>
                             <tr>
                                 <td class="information p-2 text-center align-middle" id="PKMN_Classification">
+                                    <span>Classification: </span><br/>
                                     <!-- Classification by javascript -->
                                 </td>
-                                <td class="back p-2 text-center align-middle">
-                                    <a href="index.html"><i class="fas fa-home"></i> Go back</a>
+                                <td class="back text-center align-middle p-0" onClick="getBack()">
+                                        Go back
                                 </td>
                             </tr>
                             <tr>
                                 <td class="information p-2 text-center align-middle" id="PKMN_Height">
+                                    <span>Height: </span><br/>
                                     <!-- Height by javascript -->
                                 </td>
                                 <td class="information p-2 text-center align-middle" id="PKMN_BaseEXP">
+                                    <span>Base Exp: </span><br/>
                                     <!-- Base Experience by javascript -->
                                 </td>
                             </tr>
                             <tr>
                                 <td class="information p-2 text-center align-middle" id="PKMN_Weight">
+                                    <span>Weight: </span><br/>
                                     <!-- Weight by javascript -->
                                 </td>
                                 <td class="information p-2 text-center align-middle" id="PKMN_BaseHappiness">
+                                    <span>Base Happiness: </span><br/>
                                     <!-- Base Happiness by javascript -->
                                 </td>
                             </tr>
                             <tr>
                                 <td class="information p-2 text-center align-middle" id="PKMN_Seen">
+                                    <span>Seen: </span><br/>
                                     <!-- Seen by javascript -->
                                 </td>
                                 <td class="information p-2 text-center align-middle" id="PKMN_Caught">
+                                    <span>Caught: </span><br/>
                                     <!-- Caught by javascript -->
                                 </td>
                             </tr>
                             <tr id="PKMN_Info5">
                                 <td class="information p-2 text-center align-middle" id="PKMN_CaptureRate">
+                                    <span>Capture Rate: </span><br/>
                                     <!-- Capture Rate by javascript -->
                                 </td>
                                 <td class="information p-2 text-center align-middle" id="PKMN_Abilities">
+                                    <span>Abilities: </span><br/>
                                     <!-- Abilities by javascript -->
                                 </td>
                             </tr>
@@ -117,7 +132,7 @@
                     <h3>MOVES</h3> 
                 </div>
                 <div class="col-md-7 d-flex justify-content-center moves Pokedex" >
-                    <div class="image list text-center" id="PKMN_Moves">
+                    <div class="text-center" id="PKMN_Moves">
 
                     </div>
                 </div>

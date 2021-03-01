@@ -20,10 +20,10 @@
     
     <div class="container-fluid page-content">
       <div class="row d-flex align-items-center Header">
-        <div class="col-6 d-flex mr-auto Previous" id="txtPrev">
+        <div class="col-6 d-flex mr-auto Previous rgSelect" id="txtPrev" onClick=getPreviousRegion()>
           <!-- Previous Region -->
         </div>
-        <div class="col-6 d-flex justify-content-end ml-auto Next" id="txtNext">
+        <div class="col-6 d-flex justify-content-end ml-auto Next rgSelect" id="txtNext" onClick=getNextRegion()>
           <!-- Next region -->
         </div>
         <div class="d-flex justify-content-center align-self-end" id="Pokedex">
@@ -31,7 +31,12 @@
         </div>
       </div>
         <div class="row d-flex justify-content-center rowInformation">
-          <div class="col-md-7 text-center p-0" id="allPokemon">
+          <div class="col-md-7 text-center px-0 justify-content-center" id="PKMN_Random">
+            <button class="btn randomize m-2" onClick="getPokemon()">
+              Find random pokémon
+            </button>
+          </div>
+          <div class="col-md-7 text-center px-0 justify-content-center" id="allPokemon">
             <!-- Fill with all pokemons by region -->
             <script src="../scripts/all-pokemon.js"></script> 
           </div>
